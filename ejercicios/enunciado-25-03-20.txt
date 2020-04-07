@@ -1,7 +1,7 @@
 Fecha de entrega: 25/03/2020
 
 
-1 - Realize un programa al que se le da un nro (n) por argumento y el resultado será n + nn + nn. 
+1 - Realize un programa al que se le da un nro (n) por argumento y el resultado será n + nn + nnn. 
     Por ejemplo si ingreso 9 el resultado será 9 + 99 + 999 = 1107
 
 2 - Modificar el programa anterior, ingresando un segundo nro (m) por argumento, que será el encargado de indicar cuantas sumas se harán.
