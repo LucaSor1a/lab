@@ -1,0 +1,59 @@
+1 - realize un programa que al recibir una señal SIGUSR1, comienze a imprimir por pantalla el siguiente nro real cada 1 segundo.
+Cada vez que se reciba una nueva señal SIGUSR1, el tiempo entre impresiones en pantalla se duplicará.
+Si se recibe una señal SIGUSR2, se dejará de imprimir por pantalla el siguiente nro real.
+En caso de recibir una segunda señal SIGUSR2, se continuará desde el nro real que estaba imprimiendo, con un intervalo de 1 segundo.
+
+Ejemplo de funcionamiento
+# ./eje1.py
+1
+2
+3
+4
+.....etc, etc
+
+2 - Mediante señales, comunique a dos procesos hijos para que: 
+el hijo 1 cree el archivo indicado con el argumento -f y escriba en el todo lo que le llega por stdin.
+Una vez que termine, el hijo 2 debe abrir el archivo, pasar todo a mayusculas.
+Finalmente, el hijo 1 debe abrir nuevamente el archivo solo lectura y enviar su contenido por pantalla.
+
+Ejemplo de funcionamiento
+
+# echo "contenido del archivo"| ./eje2.py -f archivo
+CONTENIDO DEL ARCHIVO
+#
+#cat archivo
+CONTENIDO DEL ARCHIVO
+#
+
+3 - Escriba un programa que liste los archivos del directorio donde se encuentre y 
+los escriba en un archivo sin mostrarse por pantalla, luego de t segundos se ejecutará OTRO programa
+que leerá este archivo y lo escribe por pantalla, el tiempo t y nombre del archivo serán recibidos por argumentos
+y NO se puede utilizar la función sleep para esperar.
+
+Ejemplo de funcionamiento:
+
+$ python3 lista.py -t 3 -n archivo
+Guardando en archivo
+Esperando 3 segundos...
+Leyendo archivo
+archivo
+lector.py
+lista.py
+$
+
+4 - Cree un programa que tenga 2 hijos, el hijo 1 debe genera un número al azar cada t segundos y se los envía al hijo 2
+quien los imprime por pantalla, estos números NO se pueden guardar en un archivo para enviarlos y el tiempo t será ingresado
+por argumentos
+
+Ejemplo de uso:
+
+$python3 ipc.py -t 2
+Esperando 2 segundos...
+Generando y enviando numero: 78
+Recibido: 78
+Esperando 2 segundos...
+Generando y enviando numero: 15
+Recibido: 15
+.
+.
+.
