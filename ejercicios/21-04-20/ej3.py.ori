@@ -1,0 +1,24 @@
+import argparse
+import os
+import signal
+
+global fd 
+
+def alarm_handler(numero,frame):
+    print ("Alarma recibida")
+    string = "python3 lector.py -n "+fd
+    os.system(string)      
+
+signal.signal(signal.SIGALRM, alarm_handler)
+
+parser = argparse.ArgumentParser(description='Temportizador')
+parser.add_argument('-t', '--tiempo',action="store", dest="tiempo",metavar='tiempo', type=int, help="Tiempo en segundos" )
+parser.add_argument('-n', '--archivo',action="store", dest="archivo",metavar='archivo', type=str, help="Nombre del archivo" )
+args =  parser.parse_args()
+fd = args.archivo
+print ("Guardando en ",fd)
+os.system("ls > "+args.archivo) #matrix+alien+wait
+print ("Esperando {} segundos".format(args.tiempo))
+signal.alarm(args.tiempo)
+entrada = input()
+

@@ -1,0 +1,32 @@
+1- Escriba un programa que lea un archivo definido por argumento y le envíe cada linea a un hijo,
+este invertirá y pasará a mayúscula lo que se le envíe, luego se lo reenviará transformado al padre
+quien lo mostrará por pantalla. La comunicación se hará mediante pipe
+
+Ej de funcionamiento
+
+$ python3 ej1.py -f pasar.txt
+
+Escribiendo...
+Hijo iniciado
+
+ALOH
+ETNEG
+ED
+UPMOC
+
+
+2- Realice el ejercicio anterior pero utilizando la libreria multiprocessing usando el mecanismo de ipc que crea conveniente
+
+Ej de funcionamiento igual al anterior, mismo argumento
+
+3- Haga un programa que lea desde un archivo definido por el argumento -i o --input una matriz, y pueda multiplicarla (-m) o dividirla (-d) por un escalar pasado por argumento mostrando el resultado por salida standar o gardando en un archivo indicado por la opción -o o --output.
+Pensando en la performance, diseñe el código usando multiprocessing.
+No se puede usar el módulo “numpy“.
+Ej de uso
+
+$ python3 ej3.py -i matrix.txt -m 5
+[ 15,  25,  -5],
+[ 25,  30, 440],
+[-10,  20,  25]]
+
+
