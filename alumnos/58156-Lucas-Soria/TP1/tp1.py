@@ -40,18 +40,23 @@ queueb = multiprocessing.Queue()
 
 # Esta funcion se encarga de escalar el color de la imagen
 def cambiar_colores(path, queue):
+    import matplotlib.pyplot as plt
+    datos = []
     archivo = open(path, "wb")
     text = queue.get()
     archivo.write(bytearray.fromhex(text))
     if "r_" in path:
         c = 0
         valor = args["red"]
+        color = ["rojo", "red"]
     if "g_" in path:
         c = 2
         valor = args["green"]
+        color = ["verde", "green"]
     if "b_" in path:
         c = 1
         valor = args["blue"]
+        color = ["azul", "blue"]
     while True:
         colores = str(queue.get()).split(" ")
         if colores[0] == "Terminamos":
@@ -62,6 +67,7 @@ def cambiar_colores(path, queue):
                 colores[x] = int(ord(bytes.fromhex(colores[x])) * valor)
                 if colores[x] > 255:
                     colores[x] = 255
+                datos.append(colores[x])
             else:
                 colores[x] = 0
                 if c == 3:
@@ -69,7 +75,14 @@ def cambiar_colores(path, queue):
         imagen = array.array('B', colores)
         imagen.tofile(archivo)
     archivo.close()
+    datos.sort()
+    plt.hist(datos, histtype='bar', rwidth=0.95, color=color[1])
+    plt.title("hola")
+    plt.xlabel("Intensidad del color {}".format(color[0]))
+    plt.ylabel("Frecuencia")
+    plt.title("Histograma de intensidad del color {}".format(color[0]))
     os.system("eog {} &".format(path))
+    plt.show()
 
 
 # Lee los datos de la imagen
