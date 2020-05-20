@@ -13,8 +13,8 @@ archivo.close()
 import matplotlib.pyplot as plt
 
 ingresados = []
-archivo = open("/home/lucas/compu2/lab/alumnos/58156-Lucas-Soria/Enunciado-25-03-20/datos histograma.txt", "r")
-for linea in archivo.readlines(): 
+archivo = open("/home/lucas/Documents/compu2/lab/alumnos/58156-Lucas-Soria/Enunciado-25-03-20/datos histograma.txt", "r")
+for linea in archivo.readlines():
     ingresados.append(int(linea))
 archivo.close()
 ingresados.sort()
