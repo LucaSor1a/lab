@@ -30,7 +30,11 @@ Para mejorar el rendimiento, se exige implementar la solución creando 3 hilos a
 
 Una vez finalizado proceso de creación del estego-mensaje deben terminar los hilos adicionales, y el proceso debe mostrar un mensaje con el tiempo que demoró el proceso.
 
+<<<<<<< HEAD
 Los valores de OFFSET e INTERLEAVE se proveerán con las siguientes opciones "-f pixels" o "--offset pixels" y "-i pixels"  o "--interleave pixels" respectivamente. 
+=======
+Los valores de OFFSET e INTERLEAVE se proveerán con las siguientes opciones "-e pixels" o "--offset pixels" y "-i pixels"  o "--interleave pixels" respectivamente. 
+>>>>>>> profes/master
 
 Finalmente se pide validar INTERLEAVE, en función del tamaño del raster del portador y el largo del mensaje esteganográfico.
 
