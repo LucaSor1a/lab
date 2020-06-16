@@ -1,0 +1,4 @@
+./tp2.py -f dog.ppm -m mensaje.txt -e 100 -i 20 -s 10000
+
+
+./extrae_mensaje output.ppm 48 100 20 62 0
