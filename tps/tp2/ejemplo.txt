@@ -1,0 +1,2 @@
+ejecutar :
+./extrae_mensaje mensaje_oculto.ppm 33 0 1 2033 0
