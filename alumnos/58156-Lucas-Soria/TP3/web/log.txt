@@ -6010,4 +6010,91 @@ Address: 192.168.54.124
 Address: 192.168.54.124
 	Request: GET /resources/ HTTP/1.0
 	Date: Mon Sep 28 12:03:41 2020
+Address: 192.168.54.124
+	Request: GET / HTTP/1.1
+	Date: Mon Sep 28 12:11:31 2020
+Address: 192.168.54.124
+	Request: GET / HTTP/1.1
+	Date: Mon Sep 28 12:11:44 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:11:44 2020
+Address: 192.168.54.124
+	Request: GET /resources/TP2/dog.ppm HTTP/1.1
+	Date: Mon Sep 28 12:11:53 2020
+Address: 192.168.54.124
+	Request: GET /log.txt HTTP/1.1
+	Date: Mon Sep 28 12:11:58 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:11:59 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:12:11 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:12:11 2020
+Address: 192.168.54.124
+	Request: GET /lknasldknasd HTTP/1.1
+	Date: Mon Sep 28 12:12:24 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:12:24 2020
+Address: 192.168.54.124
+	Request: GET /resources/ HTTP/1.1
+	Date: Mon Sep 28 12:12:46 2020
+Address: 192.168.54.124
+	Request: GET /resources/favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:12:46 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:13:08 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:13:08 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:13:08 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 12:13:08 2020
+Address: 192.168.54.124
+	Request: GET /PPM-modifier.html HTTP/1.1
+	Date: Mon Sep 28 12:13:13 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm? HTTP/1.1
+	Date: Mon Sep 28 12:13:15 2020
+Address: 192.168.54.124
+	Request: GET / HTTP/1.1
+	Date: Mon Sep 28 12:13:34 2020
+Address: 192.168.54.124
+	Request: 	ERROR
+	Date: Mon Sep 28 12:13:51 2020
+Address: 192.168.54.124
+	Request: 	ERROR
+	Date: Mon Sep 28 12:13:57 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm?filter=R&scale=0.5 HTTP/1.1
+	Date: Mon Sep 28 12:14:11 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm?filter=W&scale=1 HTTP/1.1
+	Date: Mon Sep 28 12:14:17 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm?filter=G&scale=1 HTTP/1.1
+	Date: Mon Sep 28 12:14:21 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm?filter=B&scale=1 HTTP/1.1
+	Date: Mon Sep 28 12:14:24 2020
+Address: 192.168.54.124
+	Request: GET / HTTP/1.1
+	Date: Mon Sep 28 12:15:31 2020
+Address: 192.168.54.124
+	Request: GET /404error.html HTTP/1.1
+	Date: Mon Sep 28 12:15:32 2020
+Address: 192.168.54.124
+	Request: GET / HTTP/1.1
+	Date: Mon Sep 28 12:15:34 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm?scale=3 HTTP/1.1
+	Date: Mon Sep 28 12:15:46 2020
 

@@ -1,6 +1,6 @@
 def cambiar_colores(parte):
     img, filtro, escala = parte
-    if filtro is None and escala is None:
+    if filtro is None:
         return bytes.fromhex(img)
     if "R" == filtro or "W" == filtro:
         c = 0
