@@ -6,13 +6,18 @@ import Index
 import pathlib
 import socketserver
 import PPM
+import os
 import re
 import math
 
 
+class ArgsError(Exception):
+    pass
+
+
 def parse():
     parser = argparse.ArgumentParser(description='Tp3 - servidor web y filro de ppm')
-    parser.add_argument('-s', '--size', type=int, default=1000, help='Bloque de lectura máxima para los documentos')
+    parser.add_argument('-s', '--size', type=int, help='Bloque de lectura máxima para los documentos', default=1000)
     parser.add_argument('-d', '--documentroot', help='Directorio donde estan los documentos web', metavar='DIR', required=True)
     parser.add_argument('-p', '--port', type=int, help='Puerto en donde espera conexiones nuevas', default=80)
     parser.add_argument('-i', '--ip', type=str, help='IP donde empezar el servidor', default='127.0.0.1')
@@ -20,6 +25,8 @@ def parse():
     args = vars(parser.parse_args())
     if args['documentroot'][0] == ".":
         args['documentroot'] = str(pathlib.Path(__file__).parent.absolute()) + args['documentroot'][1:]
+    if not os.path.isdir(args['documentroot']):
+        raise ArgsError("La direccion no corresponde a un directorio")
 
     return args
 
@@ -33,13 +40,13 @@ class Handler(socketserver.BaseRequestHandler):
             encabezado_request = self.data[0]
             if encabezado_request.split(' ')[0] == 'GET':
                 archivo = encabezado_request.split(' ')[1]
-                manejar_archivo(self.path, archivo, self.size, self.request)
+                manejar_archivo(archivo, self.request)
         except Exception:
             archivo = "/500error.html"
             encabezado_request = "\tERROR"
-            manejar_archivo(self.path, archivo, self.size, self.request)
+            manejar_archivo(archivo, self.request)
         finally:
-            log = open(self.path + "/log.txt", "a")
+            log = open(args['documentroot'] + "/log.txt", "a")
             entry = "Address: " + self.client_address[0] + "\n\tRequest: " + encabezado_request + "\n\tDate: "
             entry += datetime.datetime.ctime(datetime.datetime.now()) + "\n\r"
             print(entry)
@@ -48,12 +55,22 @@ class Handler(socketserver.BaseRequestHandler):
             self.request.close()
 
 
-def run_server(path, size):
+def run_server():
     print("Starting server...")
     socketserver.ForkingTCPServer.allow_reuse_address = True
-    server = socketserver.ForkingTCPServer((args['ip'], args['port']), Handler)
-    Handler.path, Handler.size = path, size
+    try:
+        server = socketserver.ForkingTCPServer((args['ip'], args['port']), Handler)
+    except (OverflowError, OSError):
+        print("Error al indicar puerto o IP")
+        exit(-1)
     server.serve_forever()
+
+
+def ip_validacion():
+    if not re.match("^(([0-9]|[1-9][0-9]|1[0-9]{2}|"
+                    "2[0-4][0-9]|25[0-5])\\.){3}([0-9]"
+                    "|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$", args['ip']):
+        raise ArgsError("El campo -i no pertenece a una ip valida")
 
 
 def search(archivo):
@@ -79,15 +96,15 @@ def encabezado(cod, ext, pathsize, request):
     request.sendall(encabezado_response)
 
 
-def manejar_archivo(path, archivo, size, request):
+def manejar_archivo(archivo, request):
     if archivo == '/':
         archivo = '/index.html'
-        index_generado = bytearray(Index.generar(path), 'utf-8')
+        index_generado = bytearray(Index.generar(args['documentroot']), 'utf-8')
         pathsize = len(index_generado)
         encabezado("OK", "html", pathsize, request)
     else:
         f, filtro, escala = search(archivo)
-        archivo = path + f
+        archivo = args['documentroot'] + f
         try:
             if "favicon.ico" in archivo:
                 archivo = "./web/favicon.ico"
@@ -104,9 +121,9 @@ def manejar_archivo(path, archivo, size, request):
         pathsize = pathlib.Path(archivo).stat().st_size
         encabezado(cod, archivo.split(".")[-1], pathsize, request)
     if archivo.split(".")[-1] == "ppm":
-        if size % 3 != 0:
-            size = int(math.floor(size/3)*3)
-        c, lista = PPM.magic(file, size, filtro, escala)
+        if args['size'] % 3 != 0:
+            args['size'] = int(math.floor(args['size']/3)*3)
+        c, lista = PPM.magic(file, args['size'], filtro, escala)
         request.sendall(bytes.fromhex(c))
         hilos = futures.ThreadPoolExecutor()
         for i in hilos.map(PPM.cambiar_colores, lista):
@@ -121,6 +138,7 @@ def manejar_archivo(path, archivo, size, request):
 
 if __name__ == "__main__":
     args = parse()
-    run_server(args['documentroot'], args['size'])
+    ip_validacion()
+    run_server()
 
 # ab -c 10 -n 1000 127.0.0.1/error500.html

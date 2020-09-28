@@ -6097,4 +6097,73 @@ Address: 192.168.54.124
 Address: 192.168.54.124
 	Request: GET /resources/dog.ppm?scale=3 HTTP/1.1
 	Date: Mon Sep 28 12:15:46 2020
+Address: 192.168.54.124
+	Request: GET / HTTP/1.1
+	Date: Mon Sep 28 18:39:40 2020
+Address: 192.168.54.124
+	Request: 	ERROR
+	Date: Mon Sep 28 18:39:40 2020
+Address: 192.168.54.124
+	Request: GET /PPM-modifier.html HTTP/1.1
+	Date: Mon Sep 28 18:39:42 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm?filter=R&scale=1 HTTP/1.1
+	Date: Mon Sep 28 18:39:44 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm?filter=G&scale=1 HTTP/1.1
+	Date: Mon Sep 28 18:39:47 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm?filter=B&scale=1 HTTP/1.1
+	Date: Mon Sep 28 18:39:51 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm?filter=W&scale=1 HTTP/1.1
+	Date: Mon Sep 28 18:39:54 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm? HTTP/1.1
+	Date: Mon Sep 28 18:39:58 2020
+Address: 192.168.54.124
+	Request: GET /500error.html HTTP/1.1
+	Date: Mon Sep 28 18:40:03 2020
+Address: 192.168.54.124
+	Request: GET /404error.html HTTP/1.1
+	Date: Mon Sep 28 18:40:05 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 18:40:07 2020
+Address: 192.168.54.124
+	Request: GET /log.txt HTTP/1.1
+	Date: Mon Sep 28 18:40:10 2020
+Address: 192.168.54.124
+	Request: GET /resources/enunciado.pdf HTTP/1.1
+	Date: Mon Sep 28 18:40:14 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm HTTP/1.1
+	Date: Mon Sep 28 18:40:18 2020
+Address: 192.168.54.124
+	Request: GET /resources/dog.ppm HTTP/1.1
+	Date: Mon Sep 28 18:40:21 2020
+Address: 192.168.54.124
+	Request: GET /resources/imagen.jpg HTTP/1.1
+	Date: Mon Sep 28 18:40:23 2020
+Address: 192.168.54.124
+	Request: GET /resources/TP2/index.ppm HTTP/1.1
+	Date: Mon Sep 28 18:40:26 2020
+Address: 192.168.54.124
+	Request: GET /resources/TP2/output.ppm HTTP/1.1
+	Date: Mon Sep 28 18:40:31 2020
+Address: 192.168.54.124
+	Request: 	ERROR
+	Date: Mon Sep 28 18:40:35 2020
+Address: 192.168.54.124
+	Request: GET /resources/TP2/favicon.ico HTTP/1.1
+	Date: Mon Sep 28 18:40:36 2020
+Address: 192.168.54.124
+	Request: GET /favicon.ico HTTP/1.1
+	Date: Mon Sep 28 18:40:38 2020
+Address: 192.168.54.124
+	Request: GET /resources/TP2/mensaje.txt HTTP/1.1
+	Date: Mon Sep 28 18:40:40 2020
+Address: 192.168.54.124
+	Request: GET /resources/TP1/morty.ppm HTTP/1.1
+	Date: Mon Sep 28 18:41:00 2020
 
